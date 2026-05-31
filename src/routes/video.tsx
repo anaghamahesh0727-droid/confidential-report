@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { NavBar } from "@/components/NavBar";
 import { fireConfetti, fireFireworks, fireHearts } from "@/lib/confetti";
+import { assetUrl } from "@/lib/utils";
 
 export const Route = createFileRoute("/video")({
   head: () => ({ meta: [{ title: "🎬 Video Dashboard" }] }),
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/video")({
 
 const VIDEOS = [
   {
-    src: "/video/main.mp4",
+    src: assetUrl("video/main.mp4"),
     title: "Special Birthday Video",
     description: "A special video message for Hemanth Kumar K R",
     thumbnail: "🎥",

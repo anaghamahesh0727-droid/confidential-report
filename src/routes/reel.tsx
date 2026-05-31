@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NavBar } from "@/components/NavBar";
 import { getPhotoSources, FUNNY_CAPTIONS, EMOTIONAL_CAPTIONS } from "@/lib/photos";
 import { fireConfetti, fireFireworks, fireHearts } from "@/lib/confetti";
+import { assetUrl } from "@/lib/utils";
 
 export const Route = createFileRoute("/reel")({
   head: () => ({ meta: [{ title: "🎬 Cinematic Reel — Hemanth Kumar" }] }),
@@ -344,7 +345,7 @@ function Reel() {
         {/* Background Music */}
         {phase === "reel" && (
           <audio ref={audioRef} loop>
-            <source src="/audio/1.mpeg" type="audio/mpeg" />
+            <source src={assetUrl("audio/1.mpeg")} type="audio/mpeg" />
           </audio>
         )}
 

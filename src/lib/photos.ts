@@ -1,3 +1,5 @@
+import { assetUrl } from "./utils";
+
 // Photos uploaded to public/photos/
 export const PHOTOS: string[] = [
   "1.jpeg","2.jpeg","4.jpeg","5.jpeg","6.jpeg","7.jpeg","8.jpeg","9.jpeg",
@@ -21,7 +23,7 @@ export const PLACEHOLDER_GRADIENTS = [
 
 export function getPhotoSources(): { src?: string; gradient?: string; label: string }[] {
   if (PHOTOS.length > 0) {
-    return PHOTOS.map((f) => ({ src: `/photos/${f}`, label: "" }));
+    return PHOTOS.map((f) => ({ src: assetUrl(`photos/${f}`), label: "" }));
   }
   return PLACEHOLDER_GRADIENTS.map((g) => ({ gradient: g, label: "" }));
 }
@@ -34,7 +36,7 @@ export function getMediaSources(): { type: "photo" | "video"; src?: string; grad
   
   // Add photos only (videos moved to separate page)
   if (PHOTOS.length > 0) {
-    PHOTOS.forEach((f) => media.push({ type: "photo", src: `/photos/${f}`, label: "" }));
+    PHOTOS.forEach((f) => media.push({ type: "photo", src: assetUrl(`photos/${f}`), label: "" }));
   } else {
     PLACEHOLDER_GRADIENTS.forEach((g) => media.push({ type: "photo", gradient: g, label: "" }));
   }
@@ -44,10 +46,7 @@ export function getMediaSources(): { type: "photo" | "video"; src?: string; grad
 
 // Get videos for the video page
 export function getVideoSources(): { src: string; label: string }[] {
-  return [
-    { src: "/video/3.mp4", label: "Video 1" },
-    { src: "/video/aa.mp4", label: "Video 2" },
-  ];
+  return [{ src: assetUrl("video/main.mp4"), label: "Special Birthday Video" }];
 }
 
 export const FUNNY_CAPTIONS = [
