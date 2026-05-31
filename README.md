@@ -73,8 +73,9 @@ This app uses client-side routing. **Do not** deploy only raw static files witho
 ### Static hosting (GitHub Pages, Netlify static, S3, etc.)
 
 1. `npm run build:github-pages` (or `npm run build:static` for root-hosted sites)
-2. Publish the **`dist/client`** folder as the site root
-3. GitHub Pages: set the Pages source to that folder (or use Actions to upload `dist/client`)
+2. Publish the **`dist/client`** folder as the site root (the repo also keeps a copy in **`docs/`** for GitHub Pages)
+3. **GitHub Pages settings** (one-time): Repository → Settings → Pages → Build and deployment → Source: **Deploy from a branch** → Branch: **main** → Folder: **/docs**  
+   (Or use **GitHub Actions** as the source if you prefer the workflow deploy.)
 
 Live site: [https://anaghamahesh0727-droid.github.io/confidential-report/](https://anaghamahesh0727-droid.github.io/confidential-report/)
 
