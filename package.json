@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:static": "node scripts/build-static.mjs",
+    "build:github-pages": "node scripts/build-github-pages.mjs",
+    "start": "node dist/server/index.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "preview:static": "npx serve dist/client -s",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

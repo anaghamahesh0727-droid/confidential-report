@@ -43,8 +43,12 @@ npm run dev
 ## 📜 Available Scripts
 
 - `npm run dev` - Start development server
-- `npm run build` - Build for production
+- `npm run build` - Build for production (Node server — use on Render, Railway, Fly.io, VPS, etc.)
+- `npm start` - Run the production Node server after `npm run build`
+- `npm run build:static` - Build static files in `dist/client` (any static host)
+- `npm run build:github-pages` - Static build with base path for GitHub Pages
 - `npm run preview` - Preview production build
+- `npm run preview:static` - Preview static build locally
 - `npm run lint` - Run ESLint
 - `npm run format` - Format code with Prettier
 
@@ -64,7 +68,22 @@ confidential-report/
 
 ## 🌐 Deployment
 
-This project is deployed on GitHub Pages. Visit: [https://anaghamahesh0727-droid.github.io/confidential-report/](https://anaghamahesh0727-droid.github.io/confidential-report/)
+This app uses client-side routing. **Do not** deploy only raw static files without the SPA shell, or deep links (e.g. `/gallery`) will 404.
+
+### Static hosting (GitHub Pages, Netlify static, S3, etc.)
+
+1. `npm run build:github-pages` (or `npm run build:static` for root-hosted sites)
+2. Publish the **`dist/client`** folder as the site root
+3. GitHub Pages: set the Pages source to that folder (or use Actions to upload `dist/client`)
+
+Live site: [https://anaghamahesh0727-droid.github.io/confidential-report/](https://anaghamahesh0727-droid.github.io/confidential-report/)
+
+### Node hosting (Render, Railway, Fly.io, VPS, etc.)
+
+1. `npm run build`
+2. `npm start` (serves on port 3000 by default; set `PORT` if needed)
+
+No Vercel or Netlify config files are required — routing is handled by the app build.
 
 ## 📝 License
 
